@@ -1,9 +1,11 @@
 <h1>Eat Da Burger!</h1>
 
-<p>Devour burgers with this app</p>
+<h2>Devour burgers with this app</h2>
 
+<div class="container">
     <section class="row">
         <div class="col-md-7 col-left">
+            <h3>Burgers that are available</h3>
             <table>
                 {{#each burgers}}
                     {{#unless devoured}}
@@ -13,6 +15,7 @@
             </table>
         </div>
         <div class="col-md-5 col-right">
+            <h3>Burgers that have been devoured</h3>
             {{#each burgers}}
                 {{#if devoured}}
                     <div>{{id}}. {{burger_name}}</div>
@@ -20,11 +23,19 @@
             {{/each}}        
         </div>          
     </section>
-
-    <form class="create-form">
-        <div class="form-group">
-            <label for="name"></label>
-            <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What do you want to eat?"></textarea>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Add a burger!</h3>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="name"></label>
+                    <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What do you want to eat?"></textarea>
+                </div>
+                <button type="submit">Add Burger</button>
+            </form>
         </div>
-        <button type="submit">Add Burger</button>
-    </form>
+    </div>
+</div>
