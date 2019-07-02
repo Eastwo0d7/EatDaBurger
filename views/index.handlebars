@@ -1,32 +1,30 @@
 <h1>Eat Da Burger!</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-6 text-center" class="task">
-            <div class="row">
-                <h2>Burgers that are not devoured!</h2>
-                {{#each burgers}}
-                    {{#unless this.devoured}}
-                <div class="col-xs-9 text-center">
-                    <pre>{{this.id}}. {{this.burger_name}}</pre>
-                </div>
-                <div class="col-xs-3 text-center">
-                    <form method="POST" action="/burgers/update?_method=PUT"
-                        class="button-size">
-                        <input type="hidden" name="burger_id" type="text" value={{this.id}}>
-                        <br>
-                        <button type="submit" class="btn btn-default">Devour the burger!</button>
-                    </form>
-                </div>
-            {{/unless}}
-            {{/each}}
-            </div>
-        </div>
-        <div class="col-xs-6 text-center">
-            <div class="row">
-                <h2>Burgers that have been devoured!</h2>
+<p>Devour burgers with this app</p>
 
-            </div>
+    <section class="row">
+        <div class="col-md-7 col-left">
+            <table>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{> burgers/burger-block}}
+                    {{/unless}}
+                {{/each}}
+            </table>
         </div>
-    </div>
-</div>
+        <div class="col-md-5 col-right">
+            {{#each burgers}}
+                {{#if devoured}}
+                    <div>{{id}}. {{burger_name}}</div>
+                {{/if}}
+            {{/each}}        
+        </div>          
+    </section>
+
+    <form class="create-form">
+        <div class="form-group">
+            <label for="name"></label>
+            <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What do you want to eat?"></textarea>
+        </div>
+        <button type="submit">Add Burger</button>
+    </form>
