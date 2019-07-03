@@ -24,8 +24,10 @@ $(function() {
         console.log(name);
         if(name !== "") {
             var newBurger = {
-                burger_name: name
+                name: name
             };
+            console.log(newBurger);
+            
 
             // Send the POST request.
             $.ajax("/api/burgers", {
