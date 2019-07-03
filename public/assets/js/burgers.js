@@ -17,13 +17,14 @@ $(function() {
 
     $(".create-form").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
+        console.log("button pressed");
         event.preventDefault();
 
         var name = $("[name=burger-name]").val().trim();
-
+        console.log(name);
         if(name !== "") {
             var newBurger = {
-                name: name
+                burger_name: name
             };
 
             // Send the POST request.

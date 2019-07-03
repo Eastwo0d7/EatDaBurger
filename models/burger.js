@@ -17,9 +17,16 @@ var burger = {
     orm.updateOne('burgers', objColVals, condition, function(res) {
       cb(res);
     });
+  },
+
+  createOne: function(cols, vals, cb) {
+    orm.createOne("burgers", cols, vals, function(res) {
+      cb(res);
+    });
   }
 
-//   Makev createOne
+//   Make createOne
+
 };
 
 
